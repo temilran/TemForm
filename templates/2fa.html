@@ -1,0 +1,51 @@
+{% extends 'bas.html' %}
+
+{% block title %}Authentication{% endblock %}
+
+{% block body %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 75vh;">
+    <div class="card shadow-lg border-secondary p-4 text-center" style="width: 100%; max-width: 400px; background-color: #212529 !important;">
+
+        <div class="text-info fs-1 mb-2">🔒</div>
+        <h3 class="text-white fw-bold mb-2">Authentication</h3>
+        <p class="text-muted small mb-4">Введите код подтверждения, отправленный на ваше устройство</p>
+
+        <form method="POST">
+            <div class="mb-4">
+                <input type="text" class="form-control bg-dark text-white border-secondary rounded-3 py-2 px-3 text-center fs-5 custom-input"
+                       name="kod" placeholder="введите код" autocomplete="off" required>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-info rounded-pill fw-bold py-2 shadow-sm">
+                    Войти
+                </button>
+            </div>
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="/avtor" class="small text-muted text-decoration-none hover-white">Вернуться назад</a>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .custom-input::placeholder {
+        color: #6c757d !important;
+        font-size: 0.95rem;
+    }
+    .custom-input:focus {
+        background-color: #15171c !important;
+        color: #fff !important;
+        border-color: #5bc0de !important;
+        box-shadow: 0 0 0 0.25rem rgba(91, 192, 222, 0.25) !important;
+    }
+    .hover-white {
+        transition: color 0.2s;
+    }
+    .hover-white:hover {
+        color: #fff !important;
+    }
+</style>
+{% endblock %}

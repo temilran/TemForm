@@ -1,0 +1,62 @@
+{% extends 'bas.html' %}
+
+{% block title %}Avtorizate{% endblock %}
+
+{% block body %}
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert shadow-sm mb-4 rounded-3 p-3 border-0"
+                     style="background-color: rgba(25, 135, 84, 0.2) !important; color: #4ade80 !important; border-left: 4px solid #22c55e !important;">
+                    <span class="me-2">✅</span> {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 75vh;">
+
+    <div class="card shadow-lg border-secondary p-4" style="width: 100%; max-width: 400px; background-color: #212529 !important;">
+
+        <h3 class="text-white fw-bold text-center mb-4">Sign in</h3>
+
+        <form action="/avtor" method="POST">
+            <div class="mb-3">
+                <label class="form-label text-muted small">Username</label>
+                <input type="text" class="form-control bg-dark text-white border-secondary rounded-3 py-2 px-3 custom-input"
+                       name="username" placeholder="Введите имя пользователя" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label text-muted small">Password</label>
+                <input type="password" class="form-control bg-dark text-white border-secondary rounded-3 py-2 px-3 custom-input"
+                       name="password" placeholder="Введите пароль" required>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-info rounded-pill fw-bold py-2 shadow-sm">
+                    Войти
+                </button>
+            </div>
+        </form>
+
+        <div class="text-center mt-3">
+            <span class="text-muted small">Ещё нет аккаунта?</span>
+            <a href="/signup" class="small text-info text-decoration-none ms-1 fw-bold">Sign up</a>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .custom-input::placeholder {
+        color: #6c757d !important;
+    }
+    .custom-input:focus {
+        background-color: #15171c !important;
+        color: #fff !important;
+        border-color: #5bc0de !important;
+        box-shadow: 0 0 0 0.25rem rgba(91, 192, 222, 0.25) !important;
+    }
+</style>
+{% endblock %}

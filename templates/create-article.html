@@ -1,0 +1,17 @@
+{% extends 'bas.html' %}
+
+{% block title %}
+Обновлене статьи
+{% endblock %}
+{% block body %}
+<div class="container mt-5">
+    <h1>Обновлене статьи</h1>
+    <form method="post">
+        <textarea name="title" id="title" class="form-control"  placeholder="Введите название" ></textarea><br>
+        <textarea name="intro" id="intro" class="form-control"  placeholder="Введите анонс" ></textarea><br>
+        <textarea name="text" id="text" class="form-control" placeholder="Введите основной текст"></textarea><br>
+        <input type="submit" class="btn btn-success" value="Создать">
+
+    </form>
+</div>
+{% endblock %}

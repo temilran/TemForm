@@ -1,0 +1,24 @@
+{% extends 'bas.html' %}
+
+{% block title %}
+Лайки
+{% endblock %}
+{% block body %}
+<div class="container mt-5">
+    <h2>Кто лайкнул "{{ article.title }}"</h2>
+    <p>Всего лайков: {{ article_likes|length }}</p>
+
+    <ul class="list-group">
+        {% for like in article_likes %}
+            <li class="list-group-item d-flex justify-content-between">
+                <span>{{ like.user.username }}</span>
+                <small class="text-muted">
+                    {{ like.date.strftime('%H:%M') if like.date else '' }}
+                </small>
+            </li>
+        {% else %}
+            <li class="list-group-item">Лайков пока нет. Будь первым!</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

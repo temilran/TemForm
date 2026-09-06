@@ -1,0 +1,34 @@
+{% extends 'bas.html' %}
+{% block title %}Account{% endblock %}
+{% block body %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 75vh;">
+    <div class="card shadow border-secondary p-4 text-center" style="width: 100%; max-width: 420px; background-color: #212529 !important;">
+
+        <div class="position-relative d-inline-block mx-auto mb-3">
+            <img src="{{ url_for('static', filename='Logo.png') }}"
+                 class="rounded-circle border border-secondary p-2 bg-dark"
+                 width="110" height="110" alt="Avatar" style="object-fit: cover;">
+        </div>
+
+        <h3 class="text-white fw-bold mb-4">{{ current_viewer.username if current_viewer else 'Temirlan' }}</h3>
+
+        <div class="text-start border-top border-secondary pt-3 mb-4">
+            <div class="mb-2">
+                <span class="text-muted small d-block">Email:</span>
+                <span class="text-light fs-6">{{ current_viewer.email if current_viewer else 'moldabekovtemirlan1@gmail.com' }}</span>
+            </div>
+            <div>
+                <span class="text-muted small d-block">Роль:</span>
+                <span class="badge bg-dark text-info border border-info px-2 py-1 mt-1">owner</span>
+            </div>
+        </div>
+
+        <div class="d-grid">
+            <a href="/logout" class="btn btn-outline-danger rounded-pill fw-bold py-2">
+                Выйти из аккаунта
+            </a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
